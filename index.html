@@ -10,34 +10,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=apps" />
-</head>
+    <script src="script.js"></script>
+    </head>
 
 <body>
-    <nav class="w-full border-b border-gray-200 px-4 py-4 flex items-center justify-between ">
+    <nav class="w-full border-b border-gray-200 px-4 md:px-8 py-2 flex items-center justify-between">
         <!-- Left: Logo and Text -->
-        <div class="flex items-center space-x-3">
-            <img src="Images/favicon-32x32.png" alt="Logo" class="w-10 h-10">
-            <span class="font-semibold text-xl text-gray-800">Phoenix</span>
+        <div class="flex items-center space-x-2">
+            <img src="Images/favicon-32x32.png" alt="Logo" class="w-8 h-8">
+            <span class="font-semibold text-lg text-gray-800">Phoenix</span>
         </div>
         <!-- Center: Search Bar -->
-        <div class="flex-1 flex justify-center mx-4">
-            <div class="relative w-full max-w-sm">
-                <span class="absolute inset-y-0 left-4 flex items-center text-gray-400">
+        <div class="flex-1 flex justify-center mx-2">
+            <div class="relative w-full max-w-xs sm:max-w-sm">
+                <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
                     <!-- Search Icon -->
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none" />
                         <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" />
                     </svg>
                 </span>
                 <input type="text" placeholder="Search..."
-                    class="pl-14 pr-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 w-full text-base bg-gray-50" />
+                    class="pl-10 pr-3 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 w-full text-sm bg-gray-50" />
             </div>
         </div>
-        <!-- Right: Icons -->
-        <div class="flex items-center space-x-3 ml-4">
+        <!-- Right: Icons (hidden on mobile) -->
+        <div class="hidden lg:flex items-center space-x-2 ml-2">
             <!-- Theme Switch Icon (Orange) -->
             <button class="p-2 rounded-full hover:bg-orange-50">
-                <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" stroke-width="2"
+                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path
                         d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l-1.414-1.414M6.05 6.05L4.636 4.636"
@@ -47,7 +48,7 @@
             </button>
             <!-- Bell Icon -->
             <button class="p-2 rounded-full hover:bg-gray-100">
-                <svg class="w-7 h-7 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
                     <path
                         d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
@@ -55,17 +56,63 @@
                 </svg>
             </button>
             <!-- Apps Icon -->
-            <span class="material-symbols-outlined text-3xl">
+            <span class="material-symbols-outlined text-2xl">
                 apps
             </span>
             <!-- Profile Icon (Avatar) -->
-            <button class="p-2 rounded-full hover:bg-gray-100">
+            <button class="p-1 rounded-full hover:bg-gray-100">
                 <img src="Images/girl.jpg" alt="Profile"
-                    class="w-10 h-10 rounded-full object-cover border border-gray-200">
+                    class="w-8 h-8 rounded-full object-cover border border-gray-200">
             </button>
         </div>
+        <!-- Mobile: Hamburger Menu (right side) -->
+        <div class="lg:hidden flex items-center ml-2">
+            <button id="mobile-menu-button" class="p-2 rounded-full hover:bg-gray-100 focus:outline-none">
+                <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile: Collapsible Menu (right side) -->
+        <div id="mobile-menu" class="lg:hidden fixed top-0 right-0 h-full w-48 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-200 ease-in-out">
+            <div class="flex flex-col items-end p-4">
+                <button id="close-mobile-menu" class="mb-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-full hover:bg-orange-50 mb-2">
+                    <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m12.728 0l-1.414-1.414M6.05 6.05L4.636 4.636"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-full hover:bg-gray-100 mb-2">
+                    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <span class="material-symbols-outlined text-2xl mb-2">
+                    apps
+                </span>
+                <button class="p-1 rounded-full hover:bg-gray-100">
+                    <img src="Images/girl.jpg" alt="Profile"
+                        class="w-8 h-8 rounded-full object-cover border border-gray-200">
+                </button>
+            </div>
+        </div>
     </nav>
-   
+    
 </body>
 
 </html>
