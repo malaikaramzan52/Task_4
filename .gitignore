@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Build output (optional)
+dist/
+build/
+
+# Tailwind compiled files (optional)
+*.map
+
+# System files
+.DS_Store
+Thumbs.db
