@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=apps" />
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <script src="script.js"></script>
-    </head>
+</head>
 
 <body>
+    <!-- Header Section -->
     <nav class="w-full border-b border-gray-200 px-4 md:px-8 py-2 flex items-center justify-between">
         <!-- Left: Logo and Text -->
         <div class="flex items-center space-x-2">
@@ -70,19 +72,18 @@
             <button id="mobile-menu-button" class="p-2 rounded-full hover:bg-gray-100 focus:outline-none">
                 <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
                     viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M4 6h16M4 12h16M4 18h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
         <!-- Mobile: Collapsible Menu (right side) -->
-        <div id="mobile-menu" class="lg:hidden fixed top-0 right-0 h-full w-48 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-200 ease-in-out">
+        <div id="mobile-menu"
+            class="lg:hidden fixed top-0 right-0 h-full w-48 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-200 ease-in-out">
             <div class="flex flex-col items-end p-4">
                 <button id="close-mobile-menu" class="mb-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none">
                     <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
                 <button class="p-2 rounded-full hover:bg-orange-50 mb-2">
@@ -112,7 +113,121 @@
             </div>
         </div>
     </nav>
-    
+    <!-- Side bar -->
+    <section class="fixed left-0 h-screen w-64 border-r border-gray-400 bg-white overflow-y-auto">
+        <div class="m-2">
+            <div class="py-4 px-4 flex items-center hover:bg-gray-100 rounded p-4 ">
+                <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i><i
+                    class='bx bx-circle-quarter text-2xl text-blue-600 hover:text-gray-600'></i><span
+                    class="text-blue-600 ml-2 ">Home</span>
+            </div>
+            <p class=" text-gray-500 text-sm font-semibold mt-4 ml-4">
+                Apps
+            </p>
+            <ul>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-cart text-xl text-gray-900 '></i>
+                    <span class="text-gray-600 ml-2 text-sm">Ecommerce</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-phone text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">CRM</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-clipboard text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Project Management</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-backpack text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Travel agency</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-dollar-circle text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Stock</span>
+                </li>
+                <li class="flex items-center ">
+
+                    <i class='bxr  bx-message-circle text-xl text-gray-900 ml-4'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Chats</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-envelope-open text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Email</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-tickets text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Events</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-line-chart-square text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Kanban</span>
+                </li>
+                <li class="flex items-center ">
+
+                    <i class='bxr  bx-chart-gantt text-xl text-gray-900 ml-4'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Gantt Chart</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-connector text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Social</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-image text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Gallery</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-folder-open text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">File manager</span>
+                </li>
+                <li class="flex items-center ">
+                    <i class='bxr  bx-calendar text-xl text-gray-900 ml-4'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Calendar</span>
+                </li>
+                <p class=" text-gray-500 text-sm font-semibold mt-4 ml-4">
+                    PAGES
+                </p>
+                <li class="flex items-center mt-4">
+                    <i class='bxr  bx-compass text-xl text-gray-900 ml-8'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Starter</span>
+                </li>
+                <li class="flex items-center py-[8px] px-4">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-message-bubble-question-mark text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">File manager</span>
+                </li>
+                <li class="flex items-center py-[4px] px-4">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-globe-alt text-xl text-gray-900'></i>
+                    <span class="text-gray-600 ml-2 text-sm">Landing</span>
+                </li>
+                <li class="flex items-center py-[4px] px-4">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-price-tag text-xl text-gray-900'  ></i> 
+                    <span class="text-gray-600 ml-2 text-sm">Pricing</span>
+                </li>
+                <li class="flex items-center py-[4px] px-4">
+                    <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i>
+                    <i class='bxr  bx-price-tag text-xl text-gray-900'  ></i> 
+                    <span class="text-gray-600 ml-2 text-sm">Pricing</span>
+                </li>
+
+
+
+            </ul>
+        </div>
+
+    </section>
 </body>
 
 </html>
