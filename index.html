@@ -119,7 +119,7 @@
         </div>
     </nav>
     <!-- Side bar -->
-    <section class="left-0 h-screen w-64 border-r border-gray-400 bg-white fixed">
+    <section id="sidebar" class="left-0 h-screen w-64 border-r border-gray-400 bg-white fixed">
         <div id="sidebar" class="m-2 overflow-y-auto h-full">
             <div class="py-4 px-4 flex items-center hover:bg-gray-100 rounded p-4 ">
                 <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i><i
@@ -351,11 +351,14 @@
                     <div class="flex items-center">
                         <span class="text-sm text-gray-700 font-medium">Collapsed View</span>
                     </div>
-                    <i class='bxr  bx-arrow-to-right-stroke text-xl text-gray-900'></i>
+                    <i id="btn" class='bxr  bx-arrow-to-right-stroke text-xl text-gray-900'></i>
                 </div>
                 <div class="border-t border-gray-200 mt-4 pt-4">
                     <p class="text-gray-500 text-sm font-semibold mt-4 ml-4">
                         COLLAPSED VIEW
+
+                        <!-- Add a script for sidebar collapse/expand functionality -->
+
                     </p>
                 </div>
             </div>
@@ -365,6 +368,49 @@
         </div>
 
     </section>
+    <!-- Main Content -->
+    <Section class="bg-gray-100 p-4 md:p-8 lg:ml-64">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-semibold text-black mb-2">Ecommerce Dashboard</h1>
+            <p class="text-gray-800">Here’s what’s going on at your business right now</p>
+        </div>
+        <div class=" mt-15 flex items-center md:flex-row flex-col gap-2">
+            <div class=" p-4 flex items-center space-x-4 rounded-lg">
+                <img src="Images/Rectangle 1.png" alt="Orders icon" class="w-12 h-12 rounded-full">
+                <div>
+                    <h1 class="text-xl font-semibold text-black">57 new orders</h1>
+                    <p class="text-sm text-gray-800">Awaiting processing</p>
+                </div>
+            </div>
+            <div class=" p-4 flex items-center space-x-4 rounded-lg">
+                <img src="Images/Rectangle 1.png" alt="Orders icon" class="w-12 h-12 rounded-full">
+                <div>
+                    <h1 class="text-xl font-semibold text-black">5 orders</h1>
+                    <p class="text-sm text-gray-800">On hold</p>
+                </div>
+            </div>
+            <div class=" p-4 flex items-center space-x-4 rounded-lg">
+                <img src="Images/Rectangle 1.png" alt="Orders icon" class="w-12 h-12 rounded-full">
+                <div>
+                    <h1 class="text-xl font-semibold text-black">15 products</h1>
+                    <p class="text-sm text-gray-800">Out of stock</p>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+        <hr class="text-gray-300 my-2">
+        <div class="">
+        <h1 class="text-2xl font-semibold text-black mb-2 mt-6">Total Sells</h1>
+        <p class=" text-gray-800">Payment received across all channels</p>
+        </div>
+        <div class="max-w-full mt-6">
+            <img class= "w-full h-full rounded-xl object-cover "src="Images/graph_2.jpg" alt="Graphs"/>
+
+        </div>
+    </Section>
+
 </body>
 
 </html>
