@@ -16,6 +16,20 @@
         #sidebar::-webkit-scrollbar {
             display: none;
         }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background: #fff;
+        }
+
+        body {
+            padding-top: 64px;
+            /* Adjust if nav height changes */
+        }
     </style>
 </head>
 
@@ -402,13 +416,28 @@
         </div>
         <hr class="text-gray-300 my-2">
         <div class="">
-        <h1 class="text-2xl font-semibold text-black mb-2 mt-6">Total Sells</h1>
-        <p class=" text-gray-800">Payment received across all channels</p>
+            <h1 class="text-2xl font-semibold text-black mb-2 mt-6">Total Sells</h1>
+            <p class=" text-gray-800">Payment received across all channels</p>
         </div>
         <div class="max-w-full mt-6">
-            <img class= "w-full h-full rounded-xl object-cover "src="Images/graph_2.jpg" alt="Graphs"/>
+            <img class="w-full h-full rounded-xl object-cover " src="Images/graph-3.jpg" alt="Graphs" />
+        </div>
+        <div class="bg-gray-400 p-6 flex flex-wrap">
+            <div class="w-full md:w-1/2 p-4 ">
+                <img class="rounded-xl"src="Images/g_1.png" alt="bx-bar-chart"/>
+            </div>
+            <div class="w-full md:w-1/2 p-4 ">
+                <img class="rounded-xl"src="Images/g_2.png" alt="bx-bar-chart"/>
+            </div>
+            <div class="w-full md:w-1/2 p-4 ">
+                <img class="rounded-xl"src="Images/g_3.png" alt="bx-bar-chart"/>
+            </div>
+            <div class="w-full md:w-1/2 p-4 ">
+                <img class="rounded-xl"src="Images/g(1)_4.jpeg" alt="bx-bar-chart"/>
+            </div>
 
         </div>
+
     </Section>
 
 </body>
