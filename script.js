@@ -21,7 +21,7 @@
                                 collapseBtn.addEventListener('click', function () {
                                     collapsed = !collapsed;
                                     sidebar.classList.toggle('w-64', !collapsed);
-                                    sidebar.classList.toggle('w-20', collapsed);
+                                    sidebar.classList.toggle('w-16', collapsed);
 
                                     // Hide all text labels when collapsed
                                     sidebar.querySelectorAll('span.text-gray-600, span.text-blue-600, span.text-sm.text-gray-700.font-medium').forEach(span => {
