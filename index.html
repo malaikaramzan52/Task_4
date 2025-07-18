@@ -83,10 +83,24 @@
             background-color: #a6a8aa;
             border-radius: 3px;
         }
+
+        @keyframes spin-slow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spin-slow {
+            animation: spin-slow 3s linear infinite;
+        }
     </style>
 </head>
 
-<body>
+<body class="relative">
     <!-- Header Section -->
     <nav class="w-full border-b border-gray-200 px-4 md:px-8 py-[12px] flex items-center justify-between">
         <!-- Left: Logo and Text -->
@@ -434,13 +448,23 @@
         </div>
 
     </section>
+
+    <!-- Customize -->
+    <div
+        class="fixed top-1/2 right-0 -translate-y-1/2 z-50 bg-gray-100 shadow-lg rounded-l-lg py-2 px-2 flex flex-col items-center gap-2 cursor-pointer group">
+        <i class="fa-solid fa-gear text-blue-600 spin-slow  text-2xl font-bold md:text-xl"></i>
+        <span class="text-gray-700 font-semibold text-xs hidden sm:block [writing-mode:vertical-rl] ">
+            CUSTOMIZE
+        </span>
+    </div>
+    </div>
     <!-- Main Content -->
     <Section class="bg-gray-100 p-4 md:p-8 lg:ml-56">
         <div class="max-w-7xl mx-auto">
             <h1 class="text-4xl font-semibold text-black mb-2">Ecommerce Dashboard</h1>
             <p class="text-gray-800">Here’s what’s going on at your business right now</p>
         </div>
-        <div class=" mt-15 flex items-center md:flex-row flex-col gap-2">
+        <div class=" mt-6 flex md:items-center md:flex-row flex-col gap-2">
             <div class=" p-4 flex items-center space-x-4 rounded-lg">
                 <img src="Images/star.png" alt="Orders icon" class="w-12 h-12 rounded-full">
                 <div>
@@ -467,13 +491,51 @@
         </div>
         </div>
         <hr class="text-gray-300 my-2">
-        <div class="">
-            <h1 class="text-2xl font-semibold text-black mb-2 mt-6">Total Sells</h1>
-            <p class=" text-gray-800">Payment received across all channels</p>
+        <!-- Total Sells -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mt-6 gap-4">
+            <!-- Left Section -->
+            <div>
+                <h1 class="text-2xl font-semibold text-black mb-1">Total Sells</h1>
+                <p class="text-gray-800">Payment received across all channels</p>
+            </div>
+
+            <!-- Right Section -->
+            <div>
+                <select
+                    class="w-[300px] md:w-[250px] border border-gray-300 bg-white rounded-md px-3 py-2 text-xs focus:outline-none hover:outline hover:outline-blue-400 transition-all duration-200">
+                    <option>Mar 1-31, 2022</option>
+                    <option>Apr 1-30, 2022</option>
+                    <option>May 1-31, 2022</option>
+                </select>
+            </div>
         </div>
+
         <div class="max-w-full mt-6">
             <img class="w-full h-full rounded-xl object-cover " src="Images/graph(2).jpeg" alt="Graphs" />
         </div>
+        <!-- Chat demo -->
+        <div
+            class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-100 rounded-full shadow cursor-pointer transition-colors duration-200">
+
+            <!-- Text: only visible on sm and up -->
+            <span class="text-blue-600 font-bold text-xs hidden sm:inline">
+                Chat demo
+            </span>
+
+            <!-- Green circle: only visible on sm and up -->
+            <div class="w-3 h-3 bg-green-500 rounded-full shadow-md hidden sm:block"></div>
+
+            <!-- Headphones icon: only visible on small screens -->
+            <div class="block sm:hidden">
+                <i class="fa-solid fa-headphones text-blue-600 text-lg"></i>
+            </div>
+
+        </div>
+
+
+
+        <!-- Orders -->
+
         <div class="p-4 flex flex-wrap">
             <div class="w-full md:w-1/2 p-4 ">
                 <img class="rounded-xl" src="Images/g_1.png" alt="bx-bar-chart" />
@@ -1081,25 +1143,47 @@
     </section>
     <!-- Projections -->
     <section class="lg:ml-56">
-    <div class="max-w-7xl mx-auto px-4 py-6">
-        <div class="flex flex-col md:flex-col lg:flex-row gap-3">
-            <!-- Projection vs Actual -->
-            <div class="w-full">
-                <h1 class="text-black font-bold text-lg">Projection vs Actual</h1>
-                <p class="text-gray-700 text-sm">Actual earnings vs projected earnings</p>
-                <img class="w-full h-full lg:h-[250px] rounded-xl mt-4 " src="Images/last_1.png" alt="Projection vs Actual" />
-            </div>
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-col lg:flex-row gap-3">
+                <!-- Projection vs Actual -->
+                <div class="w-full">
+                    <h1 class="text-black font-bold text-lg">Projection vs Actual</h1>
+                    <p class="text-gray-700 text-sm">Actual earnings vs projected earnings</p>
+                    <img class="w-full h-full lg:h-[250px] rounded-xl mt-4 " src="Images/last_1.png"
+                        alt="Projection vs Actual" />
+                </div>
 
-            <!-- Returning customer rate -->
-            <div class="w-full">
-                <h1 class="text-black font-bold text-lg">Returning Customer Rate</h1>
-                <p class="text-gray-700 text-sm">Rate of customers returning to your shop over time</p>
-                <img class="w-full  h-full lg:h-[250px] rounded-xl mt-4 " src="Images/Last_2.png" alt="Returning Customer Rate" />
+                <!-- Returning customer rate -->
+                <div class="w-full">
+                    <h1 class="text-black font-bold text-lg">Returning Customer Rate</h1>
+                    <p class="text-gray-700 text-sm">Rate of customers returning to your shop over time</p>
+                    <img class="w-full  h-full lg:h-[250px] rounded-xl mt-4 " src="Images/Last_2.png"
+                        alt="Returning Customer Rate" />
+                </div>
             </div>
         </div>
-    </div>
-    <hr class="text-gray-300 p-0 m-0">
-</section>
+        <hr class="text-gray-300 p-0 mt-8">
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-200 lg:ml-56">
+        <div
+            class="border-t border-gray-200 pt-4 bg-white p-4 flex flex-col md:flex-row md:items-center  items-center justify-between gap-2">
+
+            <!-- Left + Middle Text Combined -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+                <p class="text-gray-700 text-sm">Thank you for creating with Phoenix</p>
+                <span class="text-gray-400 hidden sm:inline">|</span>
+                <p class="text-sm text-gray-700">
+                    2025 ©
+                    <a href="#" class="text-blue-600 hover:underline font-medium">ThemeWagon</a>
+                </p>
+            </div>
+
+            <!-- Version -->
+            <p class="text-sm text-gray-500 mr-4">v1.23.0</p>
+        </div>
+    </footer>
+
 
 </body>
 
