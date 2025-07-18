@@ -43,6 +43,7 @@
             }
         }
 
+        /* Review Table */
         #review-table {
             overflow: auto;
 
@@ -58,6 +59,27 @@
         }
 
         #review-table::-webkit-scrollbar-thumb {
+            background-color: #a6a8aa;
+            border-radius: 3px;
+        }
+
+        /* Map Section */
+
+        #map-section {
+            overflow: auto;
+
+        }
+
+        #map-section::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        #map-section::-webkit-scrollbar-track {
+            background-color: #f3f4f6;
+        }
+
+        #map-section::-webkit-scrollbar-thumb {
             background-color: #a6a8aa;
             border-radius: 3px;
         }
@@ -844,101 +866,240 @@
             </div>
 
         </div>
-        <hr class="text-gray-300 mx-0">
+        <hr class="text-gray-300 p-0 m-0">
     </section>
 
-    <!-- map-section -->
-    <section class="bg-gray-300  lg:ml-56">
-        <div class="max-w-7xl mx-auto flex flex-row sm:flex-col">
-            <div class="bg-gray-100 w-full md:w-1/2 px-4 py-6 overflow-x-auto">
+    <!-- Map Section: Table left, Map right, responsive -->
+    <section class="lg:ml-56">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row">
+            <!-- Table: Left on desktop -->
+            <div class="bg-gray-100 w-full md:w-1/2 px-4 py-6 order-2 md:order-1 lg:h-[350px]">
+
                 <h1 class="text-black font-bold">Top regions by revenue</h1>
                 <p class="text-gray-500 text-sm">Where you generated most of the revenue</p>
-
-                <table class="min-w-full text-sm text-left mt-2 ">
-                    <thead class=" text-xs uppercase">
-                        <tr class="border-t border-b border-gray-300 ">
-                            <th class="px-6 py-[4px]">
-                                <div class="flex items-center space-x-1">
-                                    <span class="text-[10px] font-semibold">Country</span>
-                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
-                                </div>
-                            </th>
-                            <th class="px-6 py-[4px]">
-                                <div class="flex items-center space-x-1">
-                                    <span class="text-[10px] font-semibold">Users</span>
-                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
-                                </div>
-                            </th>
-                            <th class="px-6 py-[4px]">
-                                <div class="flex items-center space-x-1">
-                                    <span class="text-[10px] font-semibold">Transictions</span>
-                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
-                                </div>
-                            </th>
-                            <th class="px-6 py-[4px]">
-                                <div class="flex items-center space-x-1">
-                                    <span class="text-[10px] font-semibold">Revenue</span>
-                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
-                                </div>
-                            </th>
-                            <th class="px-6 py-[4px]">
-                                <div class="flex items-center space-x-1">
-                                    <span class="text-[10px] font-semibold">Conv.Rate</span>
-                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
-                                </div>
-                            </th>
-
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Row_1 -->
-                        <tr class="border-b border-gray-300">
-                            <td class="px-6 py-2"></td> <!-- Empty under 'Customer' -->
-                            <td class="px-6 py-2 text-left">377,620</td> <!-- Starts under 'Users' -->
-                            <td class="px-6 py-2 text-right">236</td>
-                            <td class="px-6 py-2 text-right">$15,758</td>
-                            <td class="px-6 py-2 text-right">10.32%</td>
-                        </tr>
-
-                        <tr class="border-b border-gray-300">
-                            <td class="px-2 py-2">
-
-                                <div class="flex flex-start gap-2">
-                                    <span class="text-black text-xs font-semibold pr-2">1.</span>
-                                    <img src="https://flagcdn.com/w40/in.png" alt="Indian Flag"
-                                        class="w-6 h-4 object-cover">
-                                    <span class="text-xs text-gray-800">India</span>
-                                </div>
-                            </td>
-                            <td class="px-4 py-2">
-                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">92896 &nbsp;<span class="text-gray-600">(41.6%)</span></p>
-                            </td>
-                             <td class="px-4 py-2 pl-14">
-                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">67 &nbsp;<span class="text-gray-600">(34.3%)</span></p>
-                            </td>
-                             <td class="px-4 py-2 pl-6">
-                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">$7560 &nbsp;<span class="text-gray-600">(36.9%)</span></p>
-                            </td>
-                            <td class="px-4 py-2 pl-12">
-                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">14.01%</p>
-                            </td>
-
-                        </tr>
-                </table>
-
-
-
-                </tbody>
-                </table>
-
+                <div id="map-section" class="overflow-x-auto p-0 m-0">
+                    <table class="min-w-full text-sm text-left mt-2 ">
+                        <thead class=" text-xs uppercase">
+                            <tr class="border-t border-b border-gray-300 ">
+                                <th class="px-6 py-[4px]">
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-[10px] font-semibold">Country</span>
+                                        <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-[4px]">
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-[10px] font-semibold">Users</span>
+                                        <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-[4px]">
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-[10px] font-semibold">Transictions</span>
+                                        <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-[4px]">
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-[10px] font-semibold">Revenue</span>
+                                        <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-[4px]">
+                                    <div class="flex items-center space-x-1">
+                                        <span class="text-[10px] font-semibold">Conv.Rate</span>
+                                        <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-300">
+                                <td class="px-6 py-2"></td>
+                                <td class="px-6 py-2 text-left">377,620</td>
+                                <td class="px-6 py-2 text-right">236</td>
+                                <td class="px-6 py-2 text-right">$15,758</td>
+                                <td class="px-6 py-2 text-right">10.32%</td>
+                            </tr>
+                            <!-- Row_1 -->
+                            <tr class="border-b border-gray-300">
+                                <td class="px-2 py-2">
+                                    <div class="flex flex-start gap-2">
+                                        <span class="text-black text-xs font-semibold pr-2">1.</span>
+                                        <img src="https://flagcdn.com/w40/in.png" alt="Indian Flag"
+                                            class="w-6 h-4 object-cover">
+                                        <span class="text-[10px] text-blue-600 hover:underline">India</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap pl-2">92896
+                                        &nbsp;<span class="text-gray-600">(41.6%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-14">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">67 &nbsp;<span
+                                            class="text-gray-600">(34.3%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-6">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">$7560
+                                        &nbsp;<span class="text-gray-600">(36.9%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-12">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">14.01%</p>
+                                </td>
+                            </tr>
+                            <!-- Row-2 -->
+                            <tr class="border-b border-gray-300">
+                                <td class="px-2 py-2">
+                                    <div class="flex flex-start gap-2">
+                                        <span class="text-black text-xs font-semibold pr-2">2.</span>
+                                        <img src="https://flagcdn.com/w40/cn.png" alt="China Flag"
+                                            class="w-6 h-4 object-cover">
+                                        <span class="text-[10px] text-blue-600 hover:underline">China</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap pl-2">50496
+                                        &nbsp;<span class="text-gray-600">(32.8%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-14">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">54 &nbsp;<span
+                                            class="text-gray-600">(23.8%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-6">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">
+                                        $6532&nbsp;<span class="text-gray-600">(26.5%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-12">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">23.56%</p>
+                                </td>
+                            </tr>
+                            <!-- Row-3 -->
+                            <tr class="border-b border-gray-300">
+                                <td class="px-2 py-2">
+                                    <div class="flex flex-start gap-2">
+                                        <span class="text-black text-xs font-semibold pr-2">3.</span>
+                                        <img src="https://flagcdn.com/w40/us.png" alt="USA Flag"
+                                            class="w-6 h-4 object-cover">
+                                        <span class="text-[10px] text-blue-600 hover:underline">USA</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap pl-2">45679
+                                        &nbsp;<span class="text-gray-600">(24.3%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-14">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">35 &nbsp;<span
+                                            class="text-gray-600">(19.7%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-6">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">
+                                        $5432&nbsp;<span class="text-gray-600">(16.9%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-12">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">10.23%</p>
+                                </td>
+                            </tr>
+                            <!-- Row-4 -->
+                            <tr class="border-b border-gray-300">
+                                <td class="px-2 py-2">
+                                    <div class="flex flex-start gap-2">
+                                        <span class="text-black text-xs font-semibold pr-2">4.</span>
+                                        <img src="https://flagcdn.com/w40/kr.png" alt="South Korea Flag"
+                                            class="w-6 h-4 object-cover">
+                                        <span class="text-[10px] text-blue-600 whitespace-nowrap hover:underline">South
+                                            Korea</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-2 ">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap pl-2">36453
+                                        &nbsp;<span class="text-gray-600">(19.7%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-14">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">22 &nbsp;<span
+                                            class="text-gray-600">(9.54%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-6">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">
+                                        $4673&nbsp;<span class="text-gray-600">(11.6%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-12">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">8.85%</p>
+                                </td>
+                            </tr>
+                            <!-- Row-5 -->
+                            <tr class="border-b border-gray-300">
+                                <td class="px-2 py-2">
+                                    <div class="flex flex-start gap-2">
+                                        <span class="text-black text-xs font-semibold pr-2">5.</span>
+                                        <img src="https://flagcdn.com/w40/vn.png" alt="Vietnam Flag"
+                                            class="w-6 h-4 object-cover">
+                                        <span class="text-[10px] text-blue-600 hover:underline">Vietnam</span>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-2">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap pl-2">15007
+                                        &nbsp;<span class="text-gray-600">(11.9%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-14">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">17 &nbsp;<span
+                                            class="text-gray-600">(6.91%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-6">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">
+                                        $2456&nbsp;<span class="text-gray-600">(10.2%)</span></p>
+                                </td>
+                                <td class="px-4 py-2 pl-12">
+                                    <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">6.01%</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-2 flex flex-row justify-between items-center">
+                    <div class="flex flex-start">
+                        <p class="text-[10px] text-gray-600">1 to 5 Items of 10</p>
+                    </div>
+                    <div class="flex flex-end mt-2 ">
+                        <span class="relative bottom-0.5"><i
+                                class='bxr  bx-chevron-left text-gray-300 font-semibold'></i></span>
+                        <p class="text-xs text-gray-300">Previous</p>
+                        <p class="text-xs text-blue-600 pl-2">Next</p>
+                        <span class="relative bottom-0.5"><i
+                                class='bxr  bx-chevron-right text-blue-600 font-semibold'></i></span>
+                    </div>
+                </div>
             </div>
-            <div>
-
+            <!-- Map: Right on desktop -->
+            <div class=" w-full md:w-1/2 flex flex-end flex-col order-1 md:order-2">
+                <iframe class="w-full h-64 md:h-full lg:h-[350px]"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65345743.00813195!2d-26.880843714240804!3d1.5344267001721954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10a06c0a948cf5d5%3A0x108270c99e90f0b3!2sAfrica!5e0!3m2!1sen!2s!4v1752817457710!5m2!1sen!2s"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-
+        <hr class="border-gray-300 m-0 p-0">
     </section>
+    <!-- Projections -->
+    <section class="lg:ml-56">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-col lg:flex-row gap-3">
+            <!-- Projection vs Actual -->
+            <div class="w-full">
+                <h1 class="text-black font-bold text-lg">Projection vs Actual</h1>
+                <p class="text-gray-700 text-sm">Actual earnings vs projected earnings</p>
+                <img class="w-full h-full lg:h-[250px] rounded-xl mt-4 " src="Images/last_1.png" alt="Projection vs Actual" />
+            </div>
+
+            <!-- Returning customer rate -->
+            <div class="w-full">
+                <h1 class="text-black font-bold text-lg">Returning Customer Rate</h1>
+                <p class="text-gray-700 text-sm">Rate of customers returning to your shop over time</p>
+                <img class="w-full  h-full lg:h-[250px] rounded-xl mt-4 " src="Images/Last_2.png" alt="Returning Customer Rate" />
+            </div>
+        </div>
+    </div>
+    <hr class="text-gray-300 p-0 m-0">
+</section>
 
 </body>
 
