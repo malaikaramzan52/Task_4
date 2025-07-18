@@ -30,12 +30,43 @@
             padding-top: 64px;
             /* Adjust if nav height changes */
         }
+
+        @media (max-width: 1023px) {
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 40;
+            }
+
+            #sidebar.active {
+                transform: translateX(0);
+            }
+        }
+
+        #review-table {
+            overflow: auto;
+
+        }
+
+        #review-table::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        #review-table::-webkit-scrollbar-track {
+            background-color: #f3f4f6;
+        }
+
+        #review-table::-webkit-scrollbar-thumb {
+            background-color: #a6a8aa;
+            border-radius: 3px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Header Section -->
-    <nav class="w-full border-b border-gray-200 px-4 md:px-8 py-2 flex items-center justify-between">
+    <nav class="w-full border-b border-gray-200 px-4 md:px-8 py-[12px] flex items-center justify-between">
         <!-- Left: Logo and Text -->
         <div class="flex items-center space-x-2">
             <img src="Images/favicon-32x32.png" alt="Logo" class="w-8 h-8">
@@ -133,7 +164,8 @@
         </div>
     </nav>
     <!-- Side bar -->
-    <section id="sidebar" class="left-0 h-screen w-64 border-r border-gray-400 bg-white fixed">
+
+    <section id="sidebar" class="left-0 h-screen w-56 border-r border-gray-400 bg-white fixed">
         <div id="sidebar" class="m-2 overflow-y-auto h-full">
             <div class="py-4 px-4 flex items-center hover:bg-gray-100 rounded p-4 ">
                 <i class="fas fa-caret-right text-sm  text-gray-400 mr-2 "></i><i
@@ -159,17 +191,17 @@
                     <li class="flex items-center py-2 px-4">
                         <i class="fas fa-caret-right text-sm text-gray-400 mr-2 w-5 text-center"></i>
                         <i class='bx bx-clipboard text-xl text-gray-900'></i>
-                        <span class="text-gray-600 ml-2 text-sm">Project Management</span>
+                        <span class="text-gray-600 ml-2 text-xs">Project Management</span>
                     </li>
                     <li class="flex items-center py-2 px-4">
                         <i class="fas fa-caret-right text-sm text-gray-400 mr-2 w-5 text-center"></i>
                         <i class='bx bx-backpack text-xl text-gray-900'></i>
-                        <span class="text-gray-600 ml-2 text-sm">Travel agency</span>
+                        <span class="text-gray-600 ml-2 text-xs">Travel agency</span>
                     </li>
                     <li class="flex items-center py-2 px-4">
                         <i class="fas fa-caret-right text-sm text-gray-400 mr-2 w-5 text-center"></i>
                         <i class='bx bx-dollar-circle text-xl text-gray-900'></i>
-                        <span class="text-gray-600 ml-2 text-sm">Stock</span>
+                        <span class="text-gray-600 ml-2 text-xs">Stock</span>
                     </li>
                     <li class="flex items-center py-2 px-4">
                         <span class="inline-block w-5 mr-2"></span>
@@ -371,7 +403,7 @@
                     <p class="text-gray-500 text-sm font-semibold mt-4 ml-4">
                         COLLAPSED VIEW
 
-                        
+
                 </div>
             </div>
         </div>
@@ -381,7 +413,7 @@
 
     </section>
     <!-- Main Content -->
-    <Section class="bg-gray-100 p-4 md:p-8 lg:ml-64 ">
+    <Section class="bg-gray-100 p-4 md:p-8 lg:ml-56">
         <div class="max-w-7xl mx-auto">
             <h1 class="text-4xl font-semibold text-black mb-2">Ecommerce Dashboard</h1>
             <p class="text-gray-800">Here’s what’s going on at your business right now</p>
@@ -422,22 +454,491 @@
         </div>
         <div class="p-4 flex flex-wrap">
             <div class="w-full md:w-1/2 p-4 ">
-                <img class="rounded-xl"src="Images/g_1.png" alt="bx-bar-chart"/>
+                <img class="rounded-xl" src="Images/g_1.png" alt="bx-bar-chart" />
             </div>
             <div class="w-full md:w-1/2 p-4 ">
-                <img class="rounded-xl"src="Images/g_2.png" alt="bx-bar-chart"/>
+                <img class="rounded-xl" src="Images/g_2.png" alt="bx-bar-chart" />
             </div>
             <div class="w-full md:w-1/2 p-4 ">
-                <img class="rounded-xl"src="Images/g_3.png" alt="bx-bar-chart"/>
+                <img class="rounded-xl" src="Images/g_3.png" alt="bx-bar-chart" />
             </div>
             <div class="w-full md:w-1/2 p-4 ">
-                <img class="rounded-xl"src="Images/g(1)_4.jpeg" alt="bx-bar-chart"/>
+                <img class="rounded-xl" src="Images/g(1)_4.jpeg" alt="bx-bar-chart" />
             </div>
 
         </div>
-
+        <hr class="text-gray-300 my-2 mx-0">
     </Section>
 
+    <!-- Reviews -->
+    <section class="py-2 px-4 md:px-8 lg:ml-56">
+        <div class="max-w-7xl mx-auto ">
+            <!-- Wrapper: Stack on mobile, row on medium+ -->
+            <div
+                class="flex flex-col md:flex-row justify-between md:items-center w-full space-y-3 md:space-y-0 md:space-x-4">
+
+                <!-- Heading and Text -->
+                <div class=" md:space-x-4">
+                    <h1 class="text-2xl font-semibold text-black"> Latest reviews</h1>
+                    <p class="text-gray-700 text-sm md:text-base">Payment received across all channels</p>
+                </div>
+
+                <!-- Right Side: Search bar + Buttons -->
+                <div class="flex flex-wrap justify-start md:justify-end items-center space-x-3">
+
+                    <!-- Search Bar -->
+                    <div class="relative w-full sm:w-auto">
+                        <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+                            <!-- Search Icon -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none" />
+                                <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </span>
+                        <input
+                            class="w-full sm:w-auto pl-10 pr-3 py-[2px] rounded-md border border-gray-300 focus:outline-none text-sm placeholder-gray-300"
+                            type="text" placeholder="Search">
+                    </div>
+
+                    <!-- All Products Button -->
+                    <button
+                        class="px-4 py-[2px]  border border-gray-300 rounded-md text-sm text-black hover:bg-gray-200 transition"
+                        type="button">
+                        All Products
+                    </button>
+
+                    <!-- Ellipsis Button -->
+                    <button
+                        class="px-4 py-[2px] border border-gray-300 rounded-md text-black hover:bg-gray-200 transition"
+                        type="button">
+                        ...
+                    </button>
+                </div>
+
+            </div>
+            <!-- Table -->
+            <div id="review-table" class="overflow-x-auto">
+                <table class="min-w-full text-sm text-left mt-6  ">
+                    <thead class=" text-xs uppercase">
+
+                        <tr class="border-t border-b border-gray-200 ">
+                            <th class="px-4 py-3">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </th>
+                            <th class="px-6 py-3">
+                                <div class="flex items-center space-x-1">
+                                    <span>Product</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-3 pl-20">
+                                <div class="flex items-center space-x-1">
+                                    <span>Customer</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-3 pl-10">
+                                <div class="flex items-center space-x-1">
+                                    <span>Rating</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+
+                            <th class="px-6 py-3">
+                                <div class="flex items-center space-x-1">
+                                    <span>Review</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-3 pl-14">
+                                <div class="flex items-center space-x-1">
+                                    <span>Status</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-3 pl-8">
+                                <div class="flex items-center space-x-1">
+                                    <span>Time</span>
+                                    <i class='bxr bx-carets-up-down text-xs text-gray-500'></i>
+                                </div>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row_1 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/smart_watch.jpg" alt="Fitbit" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">Fitbit Sense Advanced
+                                    Smartwatch with Tools</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20 ">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <img src="Images/Cust_1.png" class="w-8 h-8 rounded-full object-cover"
+                                        alt="Customer Avatar">
+                                    <span class="text-[12px] text-gray-700 hover:underline">Richard Dawkins</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/5-stars-bg.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">This Fitbit is fantastic! I was
+                                    trying to be in better shape <br>and needed some motivation, so I decided to treat
+                                    myself<br> to a new Fitbit.</p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-green-200 text-[9px] text-green-600 px-2 border border-green-600 rounded uppercase">
+                                    Approved <span class="text-green-600 text-[10px]">&#10004;</span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Just now</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row_2 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/iphone.jpg" alt="Fitbit" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">iPhone 13 pro
+                                    max-Pacific Blue-128GB storage</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <button class="w-8 rounded-full hover:bg-gray-100">
+                                        <img src="Images/girl_1.jpg" alt="Profile"
+                                            class="h-8 rounded-full object-cover border border-gray-200">
+                                    </button>
+                                    <span class="text-xs text-gray-700 hover:underline">Ashley Garrett</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/3-stars.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">The order was delivered ahead of
+                                    schedule. To give us<br>additional time, you should leave the packaging sealed<br>
+                                    with plastic.</p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-green-200 text-[9px] uppercase text-green-600 px-2 border border-green-600 rounded">
+                                    Approved <span class="text-green-600 text-[10px]">&#10004;</span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Just now</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <!-- Row-3 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/macbook.jpg" alt="Fitbit" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">Apple MacBook Pro 13
+                                    inch-M1-8/256GB-space</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20 ">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <button class="w-8 rounded-full hover:bg-gray-100">
+                                        <img src="Images/man.jpg" alt="Profile"
+                                            class="h-8 rounded-full object-cover border border-gray-200">
+                                    </button>
+                                    <span class="text-xs text-gray-700 hover:underline">Woodrow Burton</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/star-4.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">It's a Mac, after all. Once
+                                    you've gone Mac, there's no<br> going back. My first Mac lasted over nine years, and
+                                    this<br> is my second.</p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-orange-200 text-[9px] font-semibold text-red-900 px-2 border border-orange-300 rounded uppercase">
+                                    Pending <span class="text-orange-500 text-[12px] relative top-[1px]"><i
+                                            class='bxr  bx-clock-3'></i> </span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Just now</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row-4 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/imac.jpg" alt="Fitbit" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">Apple iMac 24" 4K
+                                    Retina Display M1 8 Core CPU...</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20 ">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <img src="Images/profile.webp" class="w-10 h-10 rounded-full object-cover"
+                                        alt="Customer Avatar">
+                                    <span class="text-[12px] text-gray-700 hover:underline">Eric McGee</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/3-stars.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">Personally, I like the minimalist
+                                    style, but I wouldn't<br>choose it if I were searching for a computer that I would
+                                    <br>
+                                    use frequently. It's...<span class="text-blue-600">See more</span>
+                                </p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-orange-200 text-[9px] font-semibold text-red-900 px-2 border border-orange-300 rounded uppercase">
+                                    Pending <span class="text-orange-500 text-[12px] relative top-[1px]"><i
+                                            class='bxr  bx-clock-3'></i> </span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Nov,09 3:23 AM</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <!-- Row-5 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/headset.jpg" alt="headset" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">Razer Kraken v3 x Wired
+                                    7.1 Surroung Sound Gam...</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20 ">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <img src="Images/profile.webp" class="w-10 h-10 rounded-full object-cover"
+                                        alt="Customer Avatar">
+                                    <span class="text-[12px] text-gray-700 hover:underline">Kim Carroll</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/3-stars.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">It performs exactly as expected.
+                                    There are three of these<br> in the family.</p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-orange-200 text-[9px] font-semibold text-red-900 px-2 border border-orange-300 rounded uppercase">
+                                    Pending <span class="text-orange-500 text-[12px] relative top-[1px]"><i
+                                            class='bxr  bx-clock-3'></i> </span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Nov,09 2:15 PM</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Row-6 -->
+                        <tr class="border-b border-gray-200">
+                            <td class="px-4 py-2">
+                                <input type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 rounded">
+                            </td>
+                            <td class="px-4 py-4 flex flex-row items-center gap-3 ">
+                                <img src="Images/remote.jpg" alt="headset" class="w-10 h-10  rounded-xl ">
+                                <p class="text-[10px] text-blue-600 underline whitespace-nowrap">PlayStation 5 DualSense
+                                    Wireless Controller</p>
+                            </td>
+                            <td class="px-4 py-2 pl-20 ">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <button class="w-8 rounded-full hover:bg-gray-100">
+                                        <img src="Images/girl.jpg" alt="Profile"
+                                            class="h-8 rounded-full object-cover border border-gray-200">
+                                    </button>
+                                    <span class="text-xs text-gray-700 hover:underline">Barbra Lucas</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2 pl-10">
+                                <img src="Images/star-4.png" alt="5 Stars" class="w-16 h-14">
+
+                            </td>
+                            <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-700 whitespace-nowrap">The controller is quite comfy for
+                                    me. Despite its <br>increased size, the controller still fits well in my hands.</p>
+
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <button
+                                    class="inline-flex items-center gap-1 bg-green-200 text-[9px] text-green-600 px-2 border border-green-600 rounded uppercase">
+                                    Approved <span class="text-green-600 text-[10px]">&#10004;</span>
+                                </button>
+                            </td>
+                            <td class="px-4 py-2 pl-8">
+                                <div class="flex items-center gap-2 whitespace-nowrap text-xs">
+                                    <span class="font-semibold">Nov,09 8:53 AM</span>
+                                    <span>...</span>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- Count items -->
+            <div class=" flex flex-row justify-between items-center mt-2 ">
+                <div class="flex flex-start mt-2">
+                    <p class="text-xs text-gray-800 hidden md:block">1 to 6 Items of 15</p>
+                    <span class=" text-xs text-blue-600 pl-4 hover:underline">View all</span>
+                    <span class="relative -top-0.5"><i class='bxr  bx-chevron-right text-blue-600 font-semibold'></i>
+                    </span>
+                </div>
+                <div class="flex flex-end mt-2 ">
+                    <span class="relative bottom-0.5"><i
+                            class='bxr  bx-chevron-left text-gray-300 font-semibold'></i></span>
+                    <p class="text-xs text-gray-300">Previous</p>
+
+                    <p class="text-xs text-blue-600 pl-2">Next</p>
+                    <span class="relative bottom-0.5"><i
+                            class='bxr  bx-chevron-right text-blue-600 font-semibold'></i></span>
+                </div>
+            </div>
+
+        </div>
+        <hr class="text-gray-300 mx-0">
+    </section>
+
+    <!-- map-section -->
+    <section class="bg-gray-300  lg:ml-56">
+        <div class="max-w-7xl mx-auto flex flex-row sm:flex-col">
+            <div class="bg-gray-100 w-full md:w-1/2 px-4 py-6 overflow-x-auto">
+                <h1 class="text-black font-bold">Top regions by revenue</h1>
+                <p class="text-gray-500 text-sm">Where you generated most of the revenue</p>
+
+                <table class="min-w-full text-sm text-left mt-2 ">
+                    <thead class=" text-xs uppercase">
+                        <tr class="border-t border-b border-gray-300 ">
+                            <th class="px-6 py-[4px]">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-[10px] font-semibold">Country</span>
+                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-[4px]">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-[10px] font-semibold">Users</span>
+                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-[4px]">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-[10px] font-semibold">Transictions</span>
+                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-[4px]">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-[10px] font-semibold">Revenue</span>
+                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                </div>
+                            </th>
+                            <th class="px-6 py-[4px]">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-[10px] font-semibold">Conv.Rate</span>
+                                    <i class='bxr bx-carets-up-down text-[10px] text-gray-500'></i>
+                                </div>
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row_1 -->
+                        <tr class="border-b border-gray-300">
+                            <td class="px-6 py-2"></td> <!-- Empty under 'Customer' -->
+                            <td class="px-6 py-2 text-left">377,620</td> <!-- Starts under 'Users' -->
+                            <td class="px-6 py-2 text-right">236</td>
+                            <td class="px-6 py-2 text-right">$15,758</td>
+                            <td class="px-6 py-2 text-right">10.32%</td>
+                        </tr>
+
+                        <tr class="border-b border-gray-300">
+                            <td class="px-2 py-2">
+
+                                <div class="flex flex-start gap-2">
+                                    <span class="text-black text-xs font-semibold pr-2">1.</span>
+                                    <img src="https://flagcdn.com/w40/in.png" alt="Indian Flag"
+                                        class="w-6 h-4 object-cover">
+                                    <span class="text-xs text-gray-800">India</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-2">
+                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">92896 &nbsp;<span class="text-gray-600">(41.6%)</span></p>
+                            </td>
+                             <td class="px-4 py-2 pl-14">
+                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">67 &nbsp;<span class="text-gray-600">(34.3%)</span></p>
+                            </td>
+                             <td class="px-4 py-2 pl-6">
+                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">$7560 &nbsp;<span class="text-gray-600">(36.9%)</span></p>
+                            </td>
+                            <td class="px-4 py-2 pl-12">
+                                <p class="text-[10px] text-gray-900 font-semibold whitespace-nowrap">14.01%</p>
+                            </td>
+
+                        </tr>
+                </table>
+
+
+
+                </tbody>
+                </table>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+    </section>
 
 </body>
 
